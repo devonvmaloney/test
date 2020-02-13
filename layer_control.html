@@ -3,12 +3,16 @@
         <title>My First Leaflet Map with a Multiple Layers</title>
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
         integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-        crossorigin=""/>
+        crossorigin=""/>       
+        <link rel="stylesheet" href="./clustermodules/MarkerCluster.css">
+        <link rel="stylesheet" href="./clustermodules/MarkerCluster.Default.css">
         <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
         integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
         crossorigin=""></script>
+        <script src="./clustermodules/leaflet.markercluster-src.js"></script>
         <script src="geojson/michaelpts.geojson" ></script>
-        <script src="flux_sites.geojson" ></script>
+
+        <script src="geojson/michaelpts.geojson" ></script>
     </head>
     <body> 
     <h1>Layer controls</h1>
@@ -24,7 +28,7 @@
     // this means that the following lines will be script 
     // (it could also or point to an external script file). 
 
-    var map = L.map('mapid').setView([35.91, -79.05], 4); // YOU CAN CHANGE THE ZOOM
+    var map = L.map('mapid', {maxZoom:20, minZoom:1}).setView([35.91, -79.05], 4); // YOU CAN CHANGE THE ZOOM
 
     // this line is creating the variable map by  initializing the L.map class (a Leaflet class) with the mapid element that we created before. setView is a method that can be applied to the class L.map : you can give it a latitude, longitude and a zoom.  The higher the value of the zoom, the finer the initial scale of the map. 
     //*************************************************************
