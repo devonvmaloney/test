@@ -18,6 +18,7 @@
     <style>
         #mapid{ width: 900px; height: 500px; }
     </style>
+
     <script>  
     // this means that the following lines will be script 
     // (it could also or point to an external script file). 
@@ -37,6 +38,10 @@
         attribution: 'Tiles &copy; Esri &mdash; Source: Esri',
         maxZoom: 20
     });
+    var OWM = L.tileLayer('https://{s}.tile.openweathermap.org/map/{layername}/{z}/{x}/{y}.png',  appId: '45caf9f8329c2f835ed4844e5275b597',attribution: 'Weather from <a href="https://openweathermap.org/" alt="World Map and worldwide Weather Forecast online">OpenWeatherMap</a>')
+    
+
+
    
 
    //////
@@ -54,16 +59,23 @@
         iconSize: [50,50], // size of the icon
         popupAnchor: [0,0] // where the icon is located relative to the lat lon of the point. 
         });
-   
+    var towerIcon = L.icon({ 
+         iconUrl: 'pngfuel.com.png',
+         iconSize: [50,50], 
+         popupAnchor: [0,0] });
+
     var hurricane = L.geoJSON(pts, { // open the geoJSON and place a marker 
         pointToLayer: function (feature, latlng) { 
         return L.marker(latlng, {icon: uncIcon});}
         }).addTo(map);
 
+  
+
     var baseMaps = {
     "OSM": OSM,
     "ESRI Imagery": Esri_WorldImagery,
-    "Topography": Esri_WorldShadedRelief
+    "Topography": Esri_WorldShadedRelief, 
+    "Open weather map" = OWM
     };
 
     var overlayMaps = {
