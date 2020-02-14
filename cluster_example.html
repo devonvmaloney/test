@@ -10,7 +10,7 @@
         integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
         crossorigin=""></script>
         <script src="./clustermodules/leaflet.markercluster-src.js"></script>
-        <script src="geojson/michaelpts.geojson" ></script>
+        <script src="flux_sites.geojson" ></script>
     </head>
     <body> 
     <h1>Example Using cluster</h1> 
@@ -52,7 +52,7 @@
 
     // <!-- ************** I CHANGED THE ICON to an icon from  https://www.flaticon.com/free-icons/hurricane ***************** -->
     var uncIcon = L.icon({    // notice the L.icon which is a Leaflet object with properties
-        iconUrl: 'geojson/hurricane.png',   // this points to a png in my folder
+        iconUrl: 'pngfuel.com.png',   // this points to a png in my folder
         iconSize: [50,50], // size of the icon
         popupAnchor: [0,0] // where the icon is located relative to the lat lon of the point. 
         });
@@ -66,13 +66,13 @@
     //     }  ).addTo(map);
     // });
 
-    var hurricane = L.geoJSON(pts, { // open the geoJSON and place a marker 
+    var fluxtowers = L.geoJSON(pts, { // open the geoJSON and place a marker 
         pointToLayer: function (feature, latlng) { 
         return L.marker(latlng, {icon: uncIcon});}
         })//.addTo(map);
 
         var clusters = L.markerClusterGroup();
-        clusters.addLayer(hurricane);
+        clusters.addLayer(fluxtowers);
         map.addLayer(clusters); 
     
         var baseMaps = {
@@ -95,5 +95,3 @@
     <div>Hurricane icon made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
     
     </html>
-
-
